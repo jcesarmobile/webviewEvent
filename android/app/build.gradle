@@ -38,7 +38,6 @@ dependencies {
     implementation project(':capacitor-cordova-android-plugins')
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
     implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.mparticle:android-core:5.7.8'
 }
 
 apply from: 'capacitor.build.gradle'
