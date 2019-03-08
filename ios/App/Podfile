@@ -1,0 +1,16 @@
+platform :ios, '11.0'
+use_frameworks!
+
+def capacitor_pods
+  # Automatic Capacitor Pod dependencies, do not delete
+  pod 'Capacitor', :path => '/Users/jcesarmobile/Documents/projects/capacitor/capacitor'
+  pod 'CapacitorCordova', :path => '/Users/jcesarmobile/Documents/projects/capacitor/capacitor'
+  
+  # Do not delete
+end
+
+target 'App' do
+  capacitor_pods
+  # Add your Pods here
+  pod 'mParticle-Apple-SDK', '~> 7'
+end

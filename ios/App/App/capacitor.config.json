@@ -1,0 +1,6 @@
+{
+  "appId": "es.test.events",
+  "appName": "webviewEvents",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
