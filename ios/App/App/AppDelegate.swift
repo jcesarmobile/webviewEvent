@@ -1,6 +1,5 @@
 import UIKit
 import Capacitor
-import mParticle_Apple_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,20 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    NotificationCenter.default.addObserver(self, selector: #selector(self.decidePolicyForNavigationAction(notification:)), name: Notification.Name(CAPNotifications.DecidePolicyForNavigationAction.name()), object: nil)
-    let options = MParticleOptions.init(key: "REPLACE WITH APP KEY", secret: "REPLACE WITH APP SECRET")
-    MParticle.sharedInstance().start(with: options)
     return true
-  }
-  
-  @objc func decidePolicyForNavigationAction(notification: NSNotification){
-    guard let navigationAction = notification.object as? WKNavigationAction else {
-      return
-    }
-    let url = navigationAction.request.url!
-    if MParticle.sharedInstance().isMParticleWebViewSdkUrl(url) {
-      MParticle.sharedInstance().processWebViewLogEvent(url)
-    }
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
@@ -41,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidBecomeActive(_ application: UIApplication) {
-    let topController = UIApplication.shared.keyWindow?.rootViewController as! CAPBridgeViewController
-    topController.getWebView().evaluateJavaScript("window.mParticle = window.mParticle || {}; mParticle.isIOS = true;", completionHandler: nil)
-
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   }
 
